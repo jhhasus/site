@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>owo main page owo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --hazard: #ffd23f;
+  }
+  .tape {
+    background: repeating-linear-gradient(-45deg, var(--hazard) 0 22px, #111 22px 44px);
+    padding: 7px 0;
+    transform: rotate(-1.5deg);
+    margin: 18px -20px 0;
+    box-shadow: 0 6px 0 rgba(0,0,0,.25);
+  }
+  .tape.bottom { transform: rotate(1.2deg); margin-top: 0; margin-bottom: 14px; }
+  .tape-inner {
+    background: var(--hazard);
+    color: #111;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 800;
+    font-size: clamp(.8rem, 2.4vw, 1.05rem);
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 4px 0;
+  }
+  .marquee { display: inline-block; padding-left: 100%; animation: slide 22s linear infinite; }
+  .tape.bottom .marquee { animation-direction: reverse; animation-duration: 30s; }
+  @keyframes slide { to { transform: translateX(-100%); } }
+
+  footer { text-align: center; padding: 8px 20px 34px; font-size: .9rem; }
+
+</style>
+</head>
+<body>
+
+<div class="tape" aria-hidden="true">
+  <div class="tape-inner"><span class="marquee"></span></div>
+</div>
+
+<main>
+
+</main>
+<footer>wip</footer>
+<div class="tape bottom" aria-hidden="true">
+  <div class="tape-inner"><span class="marquee"></span></div>
+</div>
+
+
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+</script>
+</body>
+</html>

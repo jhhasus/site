@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <title>GAYTERM>_<:3</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400&display=swap">
+  <style>
+    :root{color-scheme:dark;--fs:16px;--lh:1.3;--line:#2e322b;--terminal:#000;--muted:#888;--text:#ddd;--green:#00d75f;--red:#ff6b6b;--mono:'Ubuntu Mono',Consolas,'Cascadia Mono','Courier New',monospace}
+    *{box-sizing:border-box}body{min-height:100vh;margin:0;padding:0;background:#000;color:var(--text);font-family:var(--mono)}
+    .workbench{width:100%;min-height:100vh;background:#000}
+    .topbar{min-height:58px;padding:0 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line)}.brand,.window-controls,.session-status{display:flex;align-items:center}.brand{gap:11px;min-width:0}.brand-mark{color:var(--green);font:500 19px var(--mono)}.brand-name{font-weight:600;font-size:14px}.brand-version{margin-left:4px;color:var(--muted);font:12px var(--mono)}.window-controls{gap:7px}.window-dot{width:9px;height:9px;border-radius:50%;background:#60665a}.window-dot:first-child{background:#ef7765}.window-dot:nth-child(2){background:#edc05f}.window-dot:nth-child(3){background:#88c46f}
+    .session-bar{min-height:42px;padding:0 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid #2e322b;background:#1c1f1b;color:var(--muted);font:11px var(--mono)}.session-status{gap:8px}.status-light{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 9px #b8e98680}.session-tag{color:#c4c9b9}.session-divider{color:#51574b}.session-path{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .topbar,.session-bar,.bottombar{display:none}.terminal{height:auto;min-height:100vh;overflow-y:auto;padding:16px 18px 24px;background:#000;scrollbar-color:#444 #000;scrollbar-width:thin;cursor:default}.welcome{margin-bottom:16px;animation:none}.welcome-title{margin:0 0 4px;color:var(--green);font:13px/1.5 var(--mono)}.welcome-copy{margin:0;color:#aaa;font:var(--fs)/var(--lh) var(--mono)}.welcome-copy .accent{color:var(--green)}.output{margin:0 0 12px;white-space:pre-wrap;overflow-wrap:anywhere;color:#ddd;font:var(--fs)/var(--lh) var(--mono)}.output.error{color:var(--red)}.output.dim{color:var(--muted)}.command-line,.input-row{display:flex;align-items:baseline;gap:9px;min-width:0;font:var(--fs)/var(--lh) var(--mono)}.command-line{margin:0 0 2px}.prompt{flex:0 0 auto;color:var(--green)}.prompt .at{color:#ddd}.prompt .path{color:#55aaff}.command-text{color:#ddd;white-space:pre-wrap;overflow-wrap:anywhere}#command-input{width:100%;min-width:0;padding:0;border:0;outline:0;background:transparent;color:#ddd;caret-color:var(--green);font:var(--fs)/var(--lh) var(--mono);cursor:default}
+    .bottombar{min-height:40px;padding:0 20px;display:flex;align-items:center;justify-content:space-between;gap:10px;border-top:1px solid var(--line);color:var(--muted);font:10px var(--mono)}.bottom-left,.bottom-right{display:flex;align-items:center;gap:13px}.key{color:#c9cebf}.clock{color:#c0c6b5}@keyframes arrive{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}@keyframes fade-in{from{opacity:0}to{opacity:1}}
+    @media(max-width:600px){:root{--fs:15px}.terminal{padding:14px 12px 20px}.welcome-copy,.output,.command-line,#command-input{font-size:var(--fs)}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important}}
+    html,body{width:100%;height:100%;overflow:hidden}.workbench{height:100dvh;min-height:0;overflow:hidden}.terminal{display:flex;flex-direction:column;width:100%;height:100%;min-height:0;overflow:hidden;padding:14px 16px;background:#000}.welcome,.input-row{flex:0 0 auto}#history-output{flex:0 1 auto;min-height:0;overflow:hidden}.ff-red{color:#f14c4c!important}.ff-lg{color:#ccc!important}.ff-b{font-weight:400}.bg0{background:#2e3436}.bg1{background:#cc0000}.bg2{background:#4e9a06}.bg3{background:#c4a000}.bg4{background:#3465a4}.bg5{background:#75507b}.bg6{background:#06989a}.bg7{background:#d3d7cf}.bg8{background:#555753}.bg9{background:#ef2929}.bg10{background:#8ae234}.bg11{background:#fce94f}.bg12{background:#729fcf}.bg13{background:#ad7fa8}.bg14{background:#34e2e2}.bg15{background:#eeeeec}.output.fetch{white-space:pre;overflow-wrap:normal;overflow-x:auto;overflow-y:hidden}.prompt,.prompt .at,.prompt .path,.command-text,#command-input,.output,.output.error,.output.dim,.welcome-title,.welcome-copy,.welcome-copy .accent{color:#fff}#command-input{caret-color:#fff}
+  </style>
+  <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
+</head>
+<body>
+  <main class="workbench" aria-label="Interactive GNU terminal">
+    <header class="topbar"><div class="brand"><span class="brand-mark" aria-hidden="true">$_</span><span class="brand-name">GNU Terminal<span class="brand-version">v1.0</span></span></div><div class="window-controls" aria-hidden="true"><span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span></div></header>
+    <div class="session-bar"><div class="session-status"><span class="status-light"></span><span class="session-tag">LOCAL SESSION</span><span class="session-divider">/</span><span>bash-compatible</span></div><span class="session-path" id="session-path">/home/guest</span></div>
+    <section class="terminal" id="terminal" aria-label="Terminal output">
+      <div id="history-output" aria-live="polite"></div><div class="input-row"><span class="prompt" id="current-prompt"></span><input id="command-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Enter a command" autofocus></div>
+    </section>
+    <footer class="bottombar"><div class="bottom-left"><span><span class="key">↑↓</span> history</span><span><span class="key">Tab</span> complete</span></div><div class="bottom-right"><span>UTF-8</span><span>bash</span><span class="clock" id="clock"></span></div></footer>
+  </main>
+  <script>
+    (()=>{
+      const storageKey='gnu-terminal-filesystem-v2';
+      const initialFs={
+        '/':{type:'dir',children:['home','etc','usr','var','tmp']},'/home':{type:'dir',children:['guest']},
+        '/home/guest':{type:'dir',children:['Downloads','Projects','.bashrc']},
+        '/home/guest/Downloads':{type:'dir',children:[]},
+        '/home/guest/Projects':{type:'dir',children:['main_page.sh']},'/home/guest/Projects/main_page.sh':{type:'file',content:'#!/bin/bash\nxdg-open /home\n'},
+        '/home/guest/.bashrc':{type:'file',content:'# ~/.bashrc\nexport EDITOR=nano\nalias ll="ls -la"\n'},
+        '/etc':{type:'dir',children:['hostname','os-release']},'/etc/hostname':{type:'file',content:'debian\n'},
+        '/etc/os-release':{type:'file',content:'PRETTY_NAME="Debian GNU/Linux 13 (trixie)"\nNAME="Debian GNU/Linux"\nVERSION_ID="13"\nID=debian\n'},
+        '/usr':{type:'dir',children:['bin','share']},'/usr/bin':{type:'dir',children:['bash','cat','cp','echo','fastfetch','feh','find','grep','ls','mkdir','mpv','mv','rm','touch','xdg-open']},
+        '/usr/share':{type:'dir',children:[]},'/var':{type:'dir',children:['log']},'/var/log':{type:'dir',children:['syslog']},
+        '/var/log/syslog':{type:'file',content:'systemd[1]: System initialized\nlogin[42]: guest logged in\n'},'/tmp':{type:'dir',children:[]}
+      };
+      /* ===== YOUR FILES =====
+         1. Put your images/videos in a folder next to this HTML file, e.g.  files/
+         2. Add one line per file below:  path = where it appears in the terminal, src = where it is on disk.
+         Example:
+           {path:'~/Downloads/photo.jpg', src:'files/knockout.png'},
+           {path:'~/Downloads/clip.mp4',  src:'files/clip.mp4'},
+         Avoid spaces in names. Optional fields: size (bytes, shown by ls -l), mime. */
+      const userFiles=[
+        {path:'~/Downloads/knockout.png', src:'files/knockout.png'},
+        {path:'~/Downloads/2014.mp4',  src:'files/2014.mp4'},
+      ];
+
+      const commands=['cat','cd','clear','cp','date','echo','fastfetch','feh','find','grep','head','help','history','ls','man','mkdir','mpv','mv','neofetch','pwd','rm','tail','touch','tree','uname','wc','whoami','xdg-open'];
+
+      /* ---- fastfetch ---- */
+      const fetchLogo=[
+`        _,met$$$$$gg.`,
+`     ,g$$$$$$$$$$$$$$$P.`,
+`   ,g$$P""       """Y$$.".`,
+`  ,$$P'              \`$$$.`,
+`',$$P       ,ggs.     \`$$b:`,
+`\`d$$'     ,$P"'   .    $$$`,
+` $$P      d$'     ,    $$P`,
+` $$:      $$.   -    ,d$$'`,
+` $$;      Y$b._   _,d$P'`,
+` Y$$.    \`.\`"Y$$$$P"'`,
+` \`$$b      "-.__`,
+`  \`Y$$b`,
+`   \`Y$$.`,
+`     \`$$b.`,
+`       \`Y$$b.`,
+`         \`"Y$b._`,
+`             \`""""`
+      ];
+      const fetchInfo=['root@debian','-------------','OS: Debian GNU/Linux 13 (trixie) x86_64','Host: 9456HTG (ThinkPad R60)','Kernel: Linux 6.12.107+deb13-amd64','Uptime: 8 hours, 5 mins','Packages: 541 (dpkg)','Shell: bash 5.2.37','Display (LEN4040): 1024x768 @ 60 Hz in 15" [Built-in]','Cursor: Adwaita','Terminal: /dev/pts/0','CPU: Intel(R) Core(TM)2 T5500 (2) @ 1.67 GHz','GPU 1: Intel Mobile 945GM/GMS/GME, 943/940GML Express Integrated Graphics Controller [Discrete]','GPU 2: Intel Mobile 945GM/GMS, 943/940GML Express Integrated Graphics Controller [Integrated]','Memory: 287.71 MiB / 1.43 GiB (20%)','Swap: 0 B / 1.87 GiB (0%)','Disk (/): 1.87 GiB / 34.54 GiB (5%) - ext4','Local IP (ens2): 192.168.1.105/24','Locale: en_US.UTF-8'];
+      const logoRed={5:[[18,19]],6:[[18,19]],7:[[16,17]],9:[[9,11]],10:[[11,16]]};
+      const logoSegs=(line,row)=>{const padded=line.padEnd(31),segs=[];let pos=0;for(const[a,b]of(logoRed[row]||[])){if(a>pos)segs.push([padded.slice(pos,a),'ff-lg']);segs.push([padded.slice(a,b),'ff-red']);pos=b}segs.push([padded.slice(pos),'ff-lg']);return segs};
+      const fastfetchLines=()=>{
+        const info=fetchInfo.map((text,i)=>{if(i===0){const [u,h]=text.split('@');return[[u,'ff-red ff-b'],['@',''],[h,'ff-red ff-b']]}if(i===1)return[[text,'']];const k=text.indexOf(': ');return[[text.slice(0,k),'ff-red ff-b'],[': ',''],[text.slice(k+2),'']]});
+        return Array.from({length:Math.max(fetchLogo.length,info.length)},(_,i)=>[...logoSegs(fetchLogo[i]||'',i),...(info[i]||[])])};
+      const fastfetchText=()=>fastfetchLines().map(l=>l.map(seg=>seg[0]).join('').trimEnd()).join('\n');
+
+      const helpText='Available commands\n  ls [-la] [path]       list files\n  cd [path]             change directory (cd - goes back)\n  pwd                   print working directory\n  cat <file>            show file contents\n  head/tail <file>      first or last lines of a file\n  echo <text>           print text (> and >> supported)\n  touch <file>          create a file\n  mkdir [-p] <dir>      create a directory\n  cp [-r] <src> <dst>   copy\n  mv <src> <dst>        move or rename\n  rm [-rf] <path>       remove a file or directory\n  grep [-invc] <pattern> <file>  search lines\n  find [path] [-name pattern] [-type f|d]  find files\n  wc [-lwc] <file>      count lines, words, bytes\n  tree [-a] [path]      directory tree\n  feh <image...>        view images in a new tab (arrows: next/prev, f: fullscreen, q: quit)\n  mpv <video>           play a video in a new tab\n  xdg-open <file>       open an image or video in a new tab\n  fastfetch             system information\n  clear (Ctrl+L)        clear the screen\n  history               command history\n  whoami, uname, date   system information\n\nThe filesystem is virtual; commands never touch your real files.';
+
+      let fs;
+      try{const saved=JSON.parse(localStorage.getItem(storageKey));fs=saved&&saved['/']&&saved['/home/guest']?saved:structuredClone(initialFs)}catch(_){fs=structuredClone(initialFs)}
+      const oldScript='/home/guest/Projects/hello.sh',mainScript='/home/guest/Projects/main_page.sh';
+      if(fs[oldScript]&&!fs[mainScript]){fs[mainScript]={...fs[oldScript],content:'#!/bin/bash\nxdg-open /home\n'};delete fs[oldScript];const projectDir=fs['/home/guest/Projects'];if(projectDir)projectDir.children=projectDir.children.map(name=>name==='hello.sh'?'main_page.sh':name);try{localStorage.setItem(storageKey,JSON.stringify(fs))}catch(_){}}
+      if(fs[mainScript]?.content==='#!/bin/bash\nxdg-open /\n'){fs[mainScript].content='#!/bin/bash\nxdg-open /home\n';try{localStorage.setItem(storageKey,JSON.stringify(fs))}catch(_){}}
+      let cwd='/home/guest',oldCwd='/home/guest';const history=[];let historyIndex=0;
+      const terminal=document.getElementById('terminal'),output=document.getElementById('history-output'),input=document.getElementById('command-input'),prompt=document.getElementById('current-prompt'),sessionPath=document.getElementById('session-path');
+      const enc=new TextEncoder(),byteLen=s=>enc.encode(s).length,cmp=(a,b)=>a.localeCompare(b,'en');
+      const flagHas=(flags,letter)=>flags.some(f=>!f.startsWith('--')&&f.includes(letter));
+
+      function normalize(path){const parts=path.split('/'),result=[];for(const part of parts){if(!part||part==='.')continue;if(part==='..')result.pop();else result.push(part)}return'/'+result.join('/')}
+      function resolve(path='.'){if(!path||path==='~')return'/home/guest';if(path.startsWith('~/'))path='/home/guest/'+path.slice(2);return normalize(path.startsWith('/')?path:cwd+'/'+path)}
+      function parentOf(path){if(path==='/')return null;const index=path.lastIndexOf('/');return index===0?'/':path.slice(0,index)}
+      function baseName(path){return path==='/'?'/':path.slice(path.lastIndexOf('/')+1)}
+      function sortedChildren(path){return[...fs[path].children].sort(cmp)}
+      function shownPath(){return tilde(cwd)}
+      function promptHtml(){prompt.innerHTML='<span>root</span><span class="at">@</span><span>debian</span><span>:</span><span class="path"></span><span> #</span>';prompt.querySelector('.path').textContent=shownPath();sessionPath.textContent=cwd}
+      function save(){try{localStorage.setItem(storageKey,JSON.stringify(fs))}catch(_){}}
+      const reduceMotion=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const inputRow=document.querySelector('.input-row');
+      const queue=[];let busy=false,timer=null,current=null,curPre=70,curGap=16;
+      function trimOutput(){const available=output.clientHeight;if(!available)return;while(output.scrollHeight>available&&output.firstElementChild){const first=output.firstElementChild;if(first.classList.contains('output')&&first.children.length>1){first.children[0].remove();if(first.firstChild&&first.firstChild.nodeType===3)first.firstChild.remove();continue}first.remove()}}
+      function setBusy(v){busy=v;inputRow.style.opacity=v?'0':'';if(!v){promptHtml();input.focus()}}
+      /* Output is printed line by line with delays, like on a slow old PC */
+      function pump(){
+        if(!current){current=queue.shift();if(!current){setBusy(false);return}current.i=0;timer=setTimeout(pump,current.pre);return}
+        if(!current.el){current.el=document.createElement('pre');current.el.className='output'+(current.cls?' '+current.cls:'');output.appendChild(current.el)}
+        const line=current.lines[current.i++],span=document.createElement('span');span.className='ln';
+        if(Array.isArray(line))for(const[t,c]of line){const seg=document.createElement('span');if(c)seg.className=c;seg.textContent=t;span.appendChild(seg)}else span.textContent=line;
+        current.el.appendChild(span);
+        const more=current.i<current.lines.length;if(more)current.el.appendChild(document.createTextNode('\n'));
+        trimOutput();
+        const gap=current.gap;if(!more)current=null;
+        timer=setTimeout(pump,more?gap:0)
+      }
+      function print(text='',className='',lines=null){
+        lines=lines||String(text).split('\n');
+        const job={lines,cls:className,pre:reduceMotion?0:curPre,gap:reduceMotion?0:Math.min(curGap,2000/lines.length)};
+        queue.push(job);if(!busy){setBusy(true);timer=setTimeout(pump,0)}
+      }
+      function abortOutput(){clearTimeout(timer);queue.length=0;current=null;setBusy(false)}
+      function echoCommand(text){const line=document.createElement('div');line.className='command-line';const p=document.createElement('span');p.className='prompt';p.textContent=`root@debian:${shownPath()} #`;const c=document.createElement('span');c.className='command-text';c.textContent=text;line.append(p,c);output.appendChild(line)}
+      function clearScreen(){output.replaceChildren()}
+      function tokenize(command){const tokens=[],regex=/"([^"\\]*(?:\\.[^"\\]*)*)"|'([^']*)'|(\S+)/g;let match;while((match=regex.exec(command))!==null)tokens.push((match[1]??match[2]??match[3]).replace(/\\(["\\])/g,'$1'));return tokens}
+
+      /* addNode/removeNode return an error text (e.g. 'File exists') or null */
+      function addNode(path,node){if(fs[path])return'File exists';const parent=parentOf(path);if(!parent||!fs[parent])return'No such file or directory';if(fs[parent].type!=='dir')return'Not a directory';fs[path]=node;fs[parent].children.push(baseName(path));save();return null}
+      function isProtected(path){return path==='/'||path==='/home/guest'||'/home/guest'.startsWith(path+'/')}
+      function removeNode(path,recursive){const node=fs[path];if(!node)return'No such file or directory';if(isProtected(path))return'Permission denied';if(node.type==='dir'&&!recursive)return'Is a directory';if(node.type==='dir')for(const child of[...node.children])removeNode(normalize(path+'/'+child),true);delete fs[path];const parent=fs[parentOf(path)];if(parent)parent.children=parent.children.filter(name=>name!==baseName(path));save();return null}
+      function mkdirp(full){let cur='';for(const part of full.split('/').filter(Boolean)){cur+='/'+part;if(!fs[cur]){const e=addNode(cur,{type:'dir',children:[]});if(e)return e}else if(fs[cur].type!=='dir')return'Not a directory'}return null}
+      function copyTree(src,dst){const node=fs[src];if(node.type==='file')return addNode(dst,cloneFile(node));let e=addNode(dst,{type:'dir',children:[]});if(e)return e;for(const child of node.children){e=copyTree(normalize(src+'/'+child),normalize(dst+'/'+child));if(e)return e}return null}
+      function fixCwd(){while(!fs[cwd])cwd=parentOf(cwd)||'/'}
+      function writeFile(path,content,append){const full=resolve(path),node=fs[full];if(node){if(node.type!=='file')return`bash: ${path}: Is a directory`;if(node.src){delete node.src;delete node.mime;delete node.size;delete node.mounted;node.content=''}node.content=append?node.content+content:content;save();return null}const parent=parentOf(full);if(!parent||!fs[parent]||fs[parent].type!=='dir')return`bash: ${path}: No such file or directory`;const e=addNode(full,{type:'file',content});return e?`bash: ${path}: ${e}`:null}
+
+
+      /* ---- file types ---- */
+      const mimeByExt={png:'image/png',jpg:'image/jpeg',jpeg:'image/jpeg',gif:'image/gif',webp:'image/webp',bmp:'image/bmp',svg:'image/svg+xml',avif:'image/avif',mp4:'video/mp4',m4v:'video/mp4',webm:'video/webm',ogv:'video/ogg',mov:'video/quicktime',mkv:'video/x-matroska'};
+      const guessMime=name=>mimeByExt[(name.split('.').pop()||'').toLowerCase()]||'application/octet-stream';
+      const kindOf=(node,name)=>{if(!node||!node.src)return null;const m=node.mime&&node.mime!=='application/octet-stream'?node.mime:guessMime(name);return m.startsWith('image/')?'image':m.startsWith('video/')?'video':null};
+      const tilde=path=>path==='/home/guest'?'~':path.startsWith('/home/guest/')?'~'+path.slice(11):path;
+      const cloneFile=n=>{const c={...n};delete c.mounted;return c};
+      /* Mount the files listed in userFiles into the virtual filesystem */
+      function mountUserFiles(){
+        for(const[path,node]of Object.entries(fs)){if(!node.mounted)continue;delete fs[path];const parent=fs[parentOf(path)];if(parent)parent.children=parent.children.filter(n=>n!==baseName(path))}
+        for(const f of userFiles){
+          const full=normalize(String(f.path).replace(/^~/,'/home/guest')),dir=parentOf(full);
+          if(!dir||mkdirp(dir)||fs[full])continue;
+          const node={type:'file',content:'',src:f.src,mime:f.mime||guessMime(baseName(full)),size:f.size||0,mounted:true};
+          fs[dir].children.push(baseName(full));fs[full]=node;
+          if(!node.size&&window.fetch)fetch(f.src,{method:'HEAD'}).then(r=>{const l=+r.headers.get('content-length');if(l)node.size=l}).catch(()=>{})}
+        save()}
+      /* ---- feh / mpv: viewer in a new tab ---- */
+      function buildViewer(w,files,urls){
+        const d=w.document;let i=0;const n=files.length;
+        const style=d.createElement('style');style.textContent='html,body{margin:0;height:100%;background:#000;overflow:hidden}body{display:flex;align-items:center;justify-content:center}img,video{max-width:100%;max-height:100%;object-fit:contain;outline:none}#info{position:fixed;left:0;right:0;bottom:0;padding:4px 10px;background:rgba(0,0,0,.65);color:#ccc;font:15px "Ubuntu Mono",Consolas,monospace;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}';
+        d.head.appendChild(style);
+        const info=d.createElement('div');info.id='info';d.body.appendChild(info);let media=null;
+        const label=extra=>{info.textContent=`${files[i].name}${extra?'  '+extra:''}  ${n>1?'['+(i+1)+'/'+n+']  ':''}${n>1?'\u2190 \u2192 navigate  ':''}f fullscreen  q quit`};
+        function show(k){i=(k+n)%n;if(media)media.remove();const f=files[i];d.title=f.name;
+          media=d.createElement(f.kind==='video'?'video':'img');
+          if(f.kind==='video'){media.controls=true;media.autoplay=true;media.addEventListener('loadedmetadata',()=>label(`${media.videoWidth}x${media.videoHeight}`))}
+          else{media.addEventListener('load',()=>label(`${media.naturalWidth}x${media.naturalHeight}`));media.addEventListener('click',()=>{if(n>1)show(i+1)})}
+          const u=urls[i];media.addEventListener('error',()=>{w.location.href=u});media.src=u;d.body.insertBefore(media,info);label('')}
+        d.addEventListener('keydown',e=>{const k=e.key,video=files[i].kind==='video';
+          if(k==='q'||(k==='Escape'&&!d.fullscreenElement))w.close();
+          else if(k==='n'||k==='PageDown'||(!video&&(k==='ArrowRight'||k===' '))){e.preventDefault();show(i+1)}
+          else if(k==='p'||k==='PageUp'||(!video&&(k==='ArrowLeft'||k==='Backspace'))){e.preventDefault();show(i-1)}
+          else if(k==='f'){d.fullscreenElement?d.exitFullscreen():d.documentElement.requestFullscreen&&d.documentElement.requestFullscreen()}});
+        show(0);w.focus()
+      }
+      function openViewer(cmd,items){
+        const w=window.open('about:blank','_blank');
+        if(!w){print(`${cmd}: pop-up blocked - allow pop-ups for this page and try again`,'error');return}
+        buildViewer(w,items,items.map(it=>new URL(it.node.src,location.href).href))
+      }
+      function list(path,flags){
+        const showAll=flagHas(flags,'a'),long=flagHas(flags,'l'),target=resolve(path||'.'),node=fs[target];
+        if(!node)return{error:`ls: cannot access '${path}': No such file or directory`};
+        if(node.type==='file')return{text:path};
+        const names=sortedChildren(target).filter(name=>showAll||!name.startsWith('.')),entries=showAll?['.','..',...names]:names;
+        const fullOf=name=>name==='.'?target:name==='..'?(parentOf(target)||'/'):normalize(target+'/'+name);
+        if(!long)return{dir:true,text:entries.map(name=>fs[fullOf(name)]?.type==='dir'&&name!=='.'&&name!=='..'?name+'/':name).join('  ')};
+        return{dir:true,text:entries.map(name=>{const n=fs[fullOf(name)],dir=n?.type==='dir';return`${dir?'drwxr-xr-x':'-rw-r--r--'}  1 root root  ${String(dir?4096:n?.src?n.size:byteLen(n?.content||'')).padStart(5)}  ${name}`}).join('\n')}
+      }
+      function treeLines(path,prefix,showAll,counts){const kids=sortedChildren(path).filter(n=>showAll||!n.startsWith('.')),lines=[];kids.forEach((child,i)=>{const last=i===kids.length-1,full=normalize(path+'/'+child),dir=fs[full].type==='dir';lines.push(prefix+(last?'`-- ':'|-- ')+child+(dir?'/':''));if(dir){counts.d++;lines.push(...treeLines(full,prefix+(last?'    ':'|   '),showAll,counts))}else counts.f++});return lines}
+      function findWalk(path,display,test,acc){const node=fs[path];if(test(path,node))acc.push(display);if(node.type==='dir')for(const c of sortedChildren(path))findWalk(normalize(path+'/'+c),display.endsWith('/')?display+c:display+'/'+c,test,acc)}
+      function dateString(){const parts=Object.fromEntries(new Intl.DateTimeFormat('en-US',{weekday:'short',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true,timeZoneName:'short',year:'numeric'}).formatToParts(new Date()).map(p=>[p.type,p.value]));return`${parts.weekday} ${parts.month} ${parts.day.padStart(2,' ')} ${parts.hour}:${parts.minute}:${parts.second} ${parts.dayPeriod} ${parts.timeZoneName} ${parts.year}`}
+
+      function siteHomeUrl(path='/home'){return location.protocol==='file:'?new URL('index.html',location.href).href:new URL(path,location.href).href}
+
+      function run(raw){
+        curPre=70;curGap=16;let args=tokenize(raw);if(!args.length)return;
+        if(args[0].startsWith('./')||args[0].startsWith('~/')||args[0].startsWith('/')){
+          const path=resolve(args[0]),script=fs[path];
+          if(!script){print(`bash: ${args[0]}: No such file or directory`,'error');return}
+          if(script.type!=='file'){print(`bash: ${args[0]}: Is a directory`,'error');return}
+          if(!script.content.startsWith('#!/bin/bash')){print(`bash: ${args[0]}: cannot execute: unsupported script`,'error');return}
+          script.content.split('\n').map(line=>line.trim()).filter(line=>line&&!line.startsWith('#')).forEach(line=>run(line));return
+        }
+        let redirect=null;const ri=args.findIndex(a=>a==='>'||a==='>>');
+        if(ri!==-1){if(!args[ri+1]){print("bash: syntax error near unexpected token `newline'",'error');return}redirect={append:args[ri]==='>>',path:args[ri+1]};args=args.slice(0,ri)}
+        const sink=redirect?[]:null,out=t=>{if(sink)sink.push(t);else if(t!=='')print(t)},err=t=>print(t,'error');
+        if(args.length){
+          const cmd=args.shift(),flags=args.filter(a=>a.startsWith('-')),operands=args.filter(a=>!a.startsWith('-'));
+          switch(cmd){
+            case'help':out(helpText);break;
+            case'clear':clearScreen();return;
+            case'pwd':out(cwd);break;
+            case'whoami':out('root');break;
+            case'uname':out(flags.includes('-a')?'Linux debian 6.12.107+deb13-amd64 #1 SMP x86_64 GNU/Linux':'Linux');break;
+            case'date':out(dateString());break;
+            case'echo':{const text=args.filter((a,i)=>!(i===0&&a==='-n')).join(' ').replace(/\$HOME|~(?=\/|$)/g,'/home/guest').replace(/\$USER/g,'root').replace(/\$PWD/g,cwd);out(text);break}
+            case'history':out(history.map((item,index)=>`${String(index+1).padStart(4)}  ${item}`).join('\n'));break;
+            case'cd':{const arg=operands[0];let target;if(arg==='-'){target=oldCwd;out(target)}else target=resolve(arg||'/home/guest');if(!fs[target])err(`cd: ${arg||target}: No such file or directory`);else if(fs[target].type!=='dir')err(`cd: ${arg}: Not a directory`);else{oldCwd=cwd;cwd=target}break}
+            case'ls':{const targets=operands.length?operands:['.'];targets.forEach((p,i)=>{const r=list(p,flags);if(r.error){err(r.error);return}out((i&&r.dir?'\n':'')+(targets.length>1&&r.dir?p+':\n':'')+r.text)});break}
+            case'cat':case'head':case'tail':{
+              if(!operands.length){err(`${cmd}: missing file operand`);break}
+              operands.forEach((path,i)=>{const node=fs[resolve(path)];if(!node){err(`${cmd}: ${path}: No such file or directory`);return}if(node.type!=='file'){err(`${cmd}: ${path}: Is a directory`);return}if(node.src){err(`${cmd}: ${path}: Binary file (open it with feh or mpv)`);return}
+                const body=node.content.replace(/\n$/,''),lines=body.split('\n'),text=cmd==='head'?lines.slice(0,10).join('\n'):cmd==='tail'?lines.slice(-10).join('\n'):body;
+                out((cmd!=='cat'&&operands.length>1?(i?'\n':'')+`==> ${path} <==\n`:'')+text)});break}
+            case'touch':case'mkdir':{
+              if(!operands.length){err(`${cmd}: missing operand`);break}
+              const parents=cmd==='mkdir'&&(flagHas(flags,'p')||flags.includes('--parents'));
+              for(const path of operands){const full=resolve(path);let e=null;
+                if(parents){e=mkdirp(full);if(e)err(`mkdir: cannot create directory '${path}': ${e}`);continue}
+                if(fs[full]){if(cmd==='mkdir')err(`mkdir: cannot create directory '${path}': File exists`);continue}
+                e=addNode(full,cmd==='mkdir'?{type:'dir',children:[]}:{type:'file',content:''});
+                if(e)err(cmd==='mkdir'?`mkdir: cannot create directory '${path}': ${e}`:`touch: cannot touch '${path}': ${e}`)}
+              break}
+            case'rm':{
+              const recursive=flagHas(flags,'r')||flagHas(flags,'R')||flags.includes('--recursive'),force=flagHas(flags,'f')||flags.includes('--force');
+              if(!operands.length){if(!force)err('rm: missing operand');break}
+              for(const path of operands){
+                if(/(^|\/)\.\.?$/.test(path)){err(`rm: refusing to remove '.' or '..' directory: skipping '${path}'`);continue}
+                const full=resolve(path);if(force&&!fs[full])continue;
+                const e=removeNode(full,recursive);if(e)err(`rm: cannot remove '${path}': ${e}`)}
+              fixCwd();break}
+            case'cp':case'mv':{
+              if(operands.length<2){err(operands.length?`${cmd}: missing destination file operand after '${operands[0]}'`:`${cmd}: missing file operand`);break}
+              const recursive=cmd==='mv'||flagHas(flags,'r')||flagHas(flags,'R')||flags.includes('--recursive'),targetArg=operands.at(-1),sources=operands.slice(0,-1),target=resolve(targetArg),targetIsDir=fs[target]?.type==='dir';
+              if(sources.length>1&&!targetIsDir){err(`${cmd}: target '${targetArg}' is not a directory`);break}
+              for(const arg of sources){
+                const source=resolve(arg);
+                if(!fs[source]){err(`${cmd}: cannot stat '${arg}': No such file or directory`);continue}
+                if(fs[source].type==='dir'&&!recursive){err(`cp: -r not specified; omitting directory '${arg}'`);continue}
+                if(cmd==='mv'&&isProtected(source)){err(`mv: cannot move '${arg}': Permission denied`);continue}
+                const dest=targetIsDir?normalize(target+'/'+baseName(source)):target;
+                if(dest===source){err(`${cmd}: '${arg}' and '${targetArg}' are the same file`);continue}
+                if(fs[source].type==='dir'&&dest.startsWith(source+'/')){err(cmd==='mv'?`mv: cannot move '${arg}' to a subdirectory of itself, '${targetArg}'`:`cp: cannot copy a directory, '${arg}', into itself, '${targetArg}'`);continue}
+                if(fs[dest]){
+                  if(fs[source].type==='file'&&fs[dest].type==='file'){fs[dest]=cloneFile(fs[source]);save();if(cmd==='mv')removeNode(source,false);continue}
+                  err(fs[dest].type==='dir'?`${cmd}: cannot overwrite directory '${targetArg}' with non-directory`:`${cmd}: cannot overwrite non-directory '${targetArg}' with directory '${arg}'`);continue}
+                const e=copyTree(source,dest);
+                if(e){err(`${cmd}: cannot create '${targetArg}': ${e}`);continue}
+                if(cmd==='mv')removeNode(source,true)}
+              fixCwd();break}
+            case'grep':{
+              const ci=flagHas(flags,'i'),num=flagHas(flags,'n'),inv=flagHas(flags,'v'),cnt=flagHas(flags,'c');
+              if(operands.length<2){err('Usage: grep [OPTION]... PATTERN FILE...');break}
+              let rx;try{rx=new RegExp(operands[0],ci?'i':'')}catch(_){err(`grep: Invalid regular expression: ${operands[0]}`);break}
+              const files=operands.slice(1),multi=files.length>1,res=[];
+              for(const path of files){const node=fs[resolve(path)];if(!node){err(`grep: ${path}: No such file or directory`);continue}if(node.type!=='file'){err(`grep: ${path}: Is a directory`);continue}if(node.src){err(`grep: ${path}: binary file`);continue}
+                let count=0;node.content.replace(/\n$/,'').split('\n').forEach((line,idx)=>{if(rx.test(line)!==inv){count++;if(!cnt)res.push((multi?path+':':'')+(num?(idx+1)+':':'')+line)}});
+                if(cnt)res.push((multi?path+':':'')+count)}
+              if(res.length)out(res.join('\n'));break}
+            case'wc':{
+              const sel=[flagHas(flags,'l'),flagHas(flags,'w'),flagHas(flags,'c')];if(!sel.some(Boolean))sel.fill(true);
+              if(!operands.length){err('wc: missing file operand');break}
+              const rows=[];let tl=0,tw=0,tc=0;
+              for(const path of operands){const node=fs[resolve(path)];if(!node){err(`wc: ${path}: No such file or directory`);continue}if(node.type!=='file'){err(`wc: ${path}: Is a directory`);continue}
+                const c=node.content,l=(c.match(/\n/g)||[]).length,w=c.trim()?c.trim().split(/\s+/).length:0,b=node.src?node.size:byteLen(c);tl+=l;tw+=w;tc+=b;rows.push({l,w,b,name:path})}
+              if(operands.length>1&&rows.length)rows.push({l:tl,w:tw,b:tc,name:'total'});
+              const cols=['l','w','b'].filter((k,i)=>sel[i]),width=cols.length===1?0:String(Math.max(0,...rows.flatMap(r=>cols.map(k=>r[k])))).length;
+              if(rows.length)out(rows.map(r=>cols.map(k=>String(r[k]).padStart(width)).join(' ')+' '+r.name).join('\n'));break}
+            case'find':{
+              const starts=[];let i=0;while(i<args.length&&!args[i].startsWith('-'))starts.push(args[i++]);
+              let rx=null,type=null;
+              for(;i<args.length;i++){if(args[i]==='-name'&&args[i+1]!==undefined)rx=new RegExp('^'+args[++i].replace(/[.+^${}()|[\]\\]/g,'\\$&').replace(/\*/g,'.*').replace(/\?/g,'.')+'$');else if(args[i]==='-type'&&args[i+1]!==undefined)type=args[++i];else{err(`find: unknown predicate '${args[i]}'`);return}}
+              const test=(p,n)=>(!rx||rx.test(baseName(p)))&&(!type||(type==='d'?n.type==='dir':type==='f'?n.type==='file':true)),acc=[];
+              for(const s of starts.length?starts:['.']){const full=resolve(s);if(!fs[full]){err(`find: '${s}': No such file or directory`);continue}findWalk(full,s,test,acc)}
+              out(acc.join('\n'));break}
+            case'tree':{
+              const arg=operands[0]||'.',start=resolve(arg);
+              if(!fs[start]){err(`tree: ${arg}: No such file or directory`);break}
+              const counts={d:0,f:0},lines=[arg];if(fs[start].type==='dir')lines.push(...treeLines(start,'',flagHas(flags,'a'),counts));
+              lines.push('',`${counts.d} ${counts.d===1?'directory':'directories'}, ${counts.f} ${counts.f===1?'file':'files'}`);out(lines.join('\n'));break}
+            case'feh':case'mpv':case'xdg-open':{
+              if(!operands.length){err(`${cmd}: missing file operand`);break}
+              const items=[];
+              for(const path of operands){
+                if(cmd==='xdg-open'&&(path==='/'||path==='/home')){location.assign(siteHomeUrl(path));return}
+                const full=resolve(path),node=fs[full];
+                if(!node){err(`${cmd}: ${path}: No such file or directory`);continue}
+                if(node.type==='dir'&&cmd!=='feh'){err(`${cmd}: ${path}: Is a directory`);continue}
+                const entries=node.type==='dir'?sortedChildren(full).map(c=>normalize(full+'/'+c)):[full];
+                for(const f of entries){const fn=fs[f];if(fn.type!=='file')continue;const kind=kindOf(fn,baseName(f));
+                  if(cmd==='feh'&&kind!=='image'){if(node.type!=='dir')err(`feh: ${path}: Not an image file`);continue}
+                  if(cmd==='mpv'&&kind!=='video'){err(`mpv: ${path}: Not a video file`);continue}
+                  if(cmd==='xdg-open'&&!kind){err(`xdg-open: no application found for '${path}'`);continue}
+                  items.push({name:baseName(f),node:fn,kind})}}
+              if(!items.length)break;
+              if(cmd==='mpv')out(`Playing: ${items.map(it=>it.name).join(', ')}`);
+              openViewer(cmd,items);break}
+            case'fastfetch':case'neofetch':if(sink)sink.push(fastfetchText());else{curPre=900;curGap=75;print('','fetch',fastfetchLines())}break;
+            case'man':if(!operands.length)err('What manual page do you want?');else out(`GNU ${operands[0]}(1)\n\nType help for a short command list. Commands run inside a sandbox.`);break;
+            default:err(`${cmd}: command not found. Type help to see the list of commands.`)
+          }
+        }
+        if(redirect){const e=writeFile(redirect.path,sink.length?sink.join('\n')+'\n':'',redirect.append);if(e)err(e)}
+      }
+      function submit(){const command=input.value.trim();echoCommand(command);if(command){if(history.at(-1)!==command)history.push(command);historyIndex=history.length;try{run(command)}catch(e){print('bash: internal error: '+e.message,'error')}}input.value='';promptHtml();trimOutput()}
+      function complete(){
+        const value=input.value,lastSpace=value.lastIndexOf(' '),prefix=value.slice(lastSpace+1);
+        let matches,head='',base=prefix,isDir=()=>false;
+        if(lastSpace===-1&&!prefix.includes('/')){matches=commands.filter(c=>c.startsWith(prefix))}
+        else{
+          const slash=prefix.lastIndexOf('/');head=slash===-1?'':prefix.slice(0,slash+1);base=prefix.slice(slash+1);
+          const directory=head?resolve(head):cwd,node=fs[directory];if(!node||node.type!=='dir')return;
+          matches=sortedChildren(directory).filter(n=>n.startsWith(base)&&(base.startsWith('.')||!n.startsWith('.')));
+          isDir=n=>fs[normalize(directory+'/'+n)]?.type==='dir'
+        }
+        if(!matches.length)return;
+        if(matches.length===1){input.value=value.slice(0,lastSpace+1)+head+matches[0]+(isDir(matches[0])?'/':' ');return}
+        let common=matches[0];for(const m of matches)while(!m.startsWith(common))common=common.slice(0,-1);
+        if(common.length>base.length)input.value=value.slice(0,lastSpace+1)+head+common;
+        else{echoCommand(value);print(matches.join('  '),'dim');trimOutput()}
+      }
+      input.addEventListener('keydown',event=>{
+        if(event.isComposing)return;
+        if(busy){event.preventDefault();if(event.ctrlKey&&event.key.toLowerCase()==='c'){abortOutput();echoCommand('^C');trimOutput()}return}
+        if(event.key==='Enter')submit();
+        else if(event.key==='ArrowUp'){event.preventDefault();if(historyIndex>0)input.value=history[--historyIndex]}
+        else if(event.key==='ArrowDown'){event.preventDefault();if(historyIndex<history.length-1)input.value=history[++historyIndex];else{historyIndex=history.length;input.value=''}}
+        else if(event.key==='Tab'){event.preventDefault();complete()}
+        else if(event.ctrlKey&&event.key.toLowerCase()==='l'){event.preventDefault();clearScreen()}
+        else if(event.ctrlKey&&event.key.toLowerCase()==='c'&&!getSelection().toString()){event.preventDefault();echoCommand(input.value+'^C');input.value='';historyIndex=history.length;trimOutput()}
+      });
+      terminal.addEventListener('click',()=>{if(!getSelection().toString())input.focus()});
+      const clock=document.getElementById('clock'),tick=()=>{clock.textContent=new Intl.DateTimeFormat('en-GB',{hour:'2-digit',minute:'2-digit'}).format(new Date())};tick();setInterval(tick,30000);
+      mountUserFiles();promptHtml();input.focus();run('fastfetch');
+    })();
+  </script>
+  <script>
+    window.addEventListener("load", () => {
+      new cursoreffects.rainbowCursor();
+    });
+  </script>
+</body>
+</html>

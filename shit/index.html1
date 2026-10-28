@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>uwu>_<:33</title>
+  <style>
+    .jump {
+      height: 5em;
+      vertical-align: middle;
+      position: relative;
+      animation: jump 1s ease-out infinite alternate;
+    }
+    @keyframes jump {
+      from { top: 0; }	
+      to   { top: -0.5em; }
+    }
+  </style>
+</head>
+<body>
+  <p>
+    vvvvvmkll;;s;
+    <img class="jump" src="image.png" alt="">
+    <img src="https://cdn.discordapp.com/attachments/1484880511196336229/1522233772043403415/images.steamusercontent.gif?ex=6acc38ec&is=6acae76c&hm=ff27ff176892e6d67a4a3f875fd4609bbfc0781fc14f2472169b551ae5811fa7&" width="600">
+    модй дискорд jhh8461
+    сервер не мой <a href="https://discord.gg/dJvb4EaB">https://discord.gg/dJvb4EaB</a>
+    <div class="row">
+    <img src="https://cdn.discordapp.com/attachments/1444016097694318613/1454374589160231087/6677a4b2bc554a9882f51c6cbfab41e6.gif?ex=6acc8b63&is=6acb39e3&hm=4edbe16227993dd5f23f7ab2404efeeb49ca2bed4c79131647a34802bf7cc1fe&" alt="" width="1000">
+    <img src="https://cdn.discordapp.com/attachments/1484880511196336229/1558435553937203230/image.png?ex=6acc1676&is=6acac4f6&hm=6194fa6a940539b782a60c027d08a313392a571d4a919a262bdc64dca89805d0&" alt="">
+    <img src="https://cdn.discordapp.com/attachments/1066168489741656094/1391144982437433584/caption_2.gif?ex=6acbe93a&is=6aca97ba&hm=287f11f38fa5bfc5465d6452d5d066e0795cb9f9827341d9f8938239c958ac5d&" alt="">
+    </div>
+    <a href="https://www.youtube.com/@orthodox0jihad">https://www.youtube.com/@orthodox0jihad</a>
+    <img src="https://cdn.discordapp.com/attachments/1331627861408219168/1558445695839772843/togif.gif?ex=6acc1fe8&is=6acace68&hm=5398106fd2c2630d8fd32e9ca28b8edbe98b7e50b81c1207280969d45238b7ab&" alt=""> 
+    <img src="https://cdn.discordapp.com/attachments/1484880511196336229/1558750314839023616/NLpig92e.gif?ex=6acc92db&is=6acb415b&hm=43eed1ba3567826304d6d27115cea7b13205ec84c6007d77b495adeec375785c&" alt="">
+  </p>
+</body>
+</html>
